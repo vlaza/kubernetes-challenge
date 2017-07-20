@@ -1,0 +1,22 @@
+
+Steps: 1,2
+~~~~~~~~~~
+
+docker build . -t challenge
+
+docker run -e NAME='Victor' --name challenge -d -p 4000:4000 challenge
+
+Victor@ ~/Downloads/kubernetes-challenge (master) $ curl http://localhost:4000
+Hello Victor!
+
+
+Prerequisites for Kubernetes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+K8S version: 1.6.6
+
+Have KubeDNS working
+Have Ingress using RBAC in 'test' namespace exposed via LoadBalancer
+Have external DNS alias record: lb0384932849032 -> challenge.test.example.com (I used Route53 on AWS)
+
+

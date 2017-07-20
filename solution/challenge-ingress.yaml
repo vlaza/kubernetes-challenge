@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: challenge-ingress
+  namespace: test
+spec:
+  rules:
+  - host: "challenge.test.example.com"
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: challenge-service
+          servicePort: 4000
+

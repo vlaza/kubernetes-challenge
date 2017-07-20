@@ -1,0 +1,29 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+  name: challenge
+  namespace: test
+spec:
+  replicas: 2
+  revisionHistoryLimit: 15
+  template:
+    metadata:
+      labels:
+        app: challenge
+    spec:
+      containers:
+      - name: challenge
+        image: challenge:latest
+        resources:
+          requests:
+            cpu: "0.25"
+            memory: "128Mi"
+          limits:
+            cpu: "0.5"
+            memory: "256Mi"
+        env:
+          - name: NAME
+            value: Victor
+        ports:
+        - containerPort: 4000
